@@ -22,15 +22,19 @@
                     <th>ID</th>
                     <th>Count</th>
                     <th>Note Descriotion</th>
+                    <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody  >
                 @foreach($entries as $entry)
 
-                    <tr>
+                    <tr wire:key="{{$entry->id}}" wire:transition>
                         <td>{{$entry->id}}</td>
                         <td>{{$entry->bird_count}}</td>
                         <td>{{$entry->notes}}</td>
+                        <td>
+                            <button wire:click="delete({{$entry->id}})">Delete</button>
+                        </td>
                     </tr>
 
                 @endforeach

@@ -1,9 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Livewire Crash Course</title>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{{ $title ?? 'Page Title' }}</title>
+    </head>
     <style>
         p{
             font-size: 20px;
@@ -50,11 +52,13 @@
             font-weight: bold;
         }
     </style>
-
-</head>
-<body>
-
-
-
-</body>
+    <body>
+    <nav>
+        <a href="/bird-form" wire:navigate.hover>Bird Form</a>
+        <a href="/counter" wire:navigate.hover>Counter</a>
+        <a href="/lazy" wire:navigate.hover>Lazy</a>
+        <a href="/bookmarks" wire:navigate.hover>Bookmark</a>
+    </nav>
+        {{ $slot }}
+    </body>
 </html>
